@@ -54,10 +54,7 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .nav {
-      min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
-    }
-
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.02em; font-size: 1.2rem; }
     .brand-mark {
       width: 38px; aspect-ratio: 1; display: grid; place-items: center; border-radius: 12px;
@@ -73,13 +70,10 @@
       display: inline-flex; align-items: center; gap: 6px; padding: 5px; border: 1px solid var(--line); border-radius: 999px;
       background: rgba(255,255,255,.025);
     }
-    .lang button {
-      border: 0; color: var(--muted); background: transparent; padding: 7px 11px; border-radius: 999px; cursor: pointer;
-    }
+    .lang button { border: 0; color: var(--muted); background: transparent; padding: 7px 11px; border-radius: 999px; cursor: pointer; }
     .lang button.active { background: var(--accent); color: #24140a; font-weight: 800; }
 
     main { padding: 54px 0 26px; }
-
     .hero {
       position: relative; overflow: hidden; display: grid; grid-template-columns: 320px 1fr; gap: 56px; align-items: center;
       padding: 54px; border: 1px solid var(--line); border-radius: 34px;
@@ -93,8 +87,7 @@
     .avatar-wrap { position: relative; z-index: 1; }
     .avatar {
       width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 36px; display: block;
-      border: 1px solid rgba(255,210,165,.28); box-shadow: 0 22px 60px rgba(0,0,0,.42);
-      transform: rotate(-1.5deg);
+      border: 1px solid rgba(255,210,165,.28); box-shadow: 0 22px 60px rgba(0,0,0,.42); transform: rotate(-1.5deg);
     }
     .status {
       position: absolute; right: -14px; bottom: 18px; padding: 10px 15px; border-radius: 999px;
@@ -122,13 +115,11 @@
     .section p { color: var(--muted); margin: 0; }
 
     .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .skill, .project {
-      border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.025); transition: .22s ease;
-    }
+    .skill, .project { border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.025); transition: .22s ease; }
     .skill { padding: 18px; font-weight: 750; color: #f9eadd; }
     .skill:hover, .project:hover { transform: translateY(-3px); border-color: rgba(232,137,59,.42); background: rgba(232,137,59,.06); }
 
-    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .project { padding: 24px; min-height: 190px; display: flex; flex-direction: column; }
     .project-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .project-badge { font-size: .78rem; color: var(--accent-2); background: var(--accent-soft); padding: 6px 9px; border-radius: 999px; }
@@ -143,7 +134,6 @@
 
     footer { padding: 30px 0 48px; color: #9e8e7e; font-size: .92rem; }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 26px; }
-
     .mobile-menu { display: none; }
 
     @media (max-width: 900px) {
@@ -241,6 +231,10 @@
             <div class="project-top"><span class="project-badge">Security</span><span>↗</span></div>
             <h3>Kiro</h3><p data-i18n="projects.ammp0">Инструмент для задач пентеста и технических исследований.</p><span class="project-link" data-i18n="projects.open">Открыть проект</span>
           </a>
+          <a class="project" href="https://atlas.is-a.dev/dot/" target="_blank" rel="noreferrer">
+            <div class="project-top"><span class="project-badge">VPN</span><span>↗</span></div>
+            <h3>dot.</h3><p data-i18n="projects.dot">Минималистичный VLESS-клиент для Android и Windows.</p><span class="project-link" data-i18n="projects.open">Открыть проект</span>
+          </a>
         </div>
       </section>
 
@@ -268,7 +262,7 @@
         'hero.email':'Написать на почту','about.title':'Обо мне',
         'about.text':'Занимаюсь разработкой прикладных инструментов и исследованием открытых источников. Работаю на стыке OSINT, GEOINT, автоматизации и веб-разработки.',
         'skills.title':'Навыки','projects.title':'Проекты','projects.deskmate':'Настольный AI-ассистент и маскот для повседневной работы.',
-        'projects.ghostchat':'Чат-проект с акцентом на лёгкость, приватность и удобство.','projects.ammp0':'Инструмент для задач пентеста и технических исследований.',
+        'projects.ghostchat':'Чат-проект с акцентом на лёгкость, приватность и удобство.','projects.ammp0':'Инструмент для задач пентеста и технических исследований.','projects.dot':'Минималистичный VLESS-клиент для Android и Windows.',
         'projects.open':'Открыть проект','contacts.title':'Контакты','footer.text':'Вайбкодинг навеки XD'
       },
       en: {
@@ -278,7 +272,7 @@
         'hero.email':'Send an email','about.title':'About me',
         'about.text':'I develop practical tools and research open sources. My work sits at the intersection of OSINT, GEOINT, automation, and web development.',
         'skills.title':'Skills','projects.title':'Projects','projects.deskmate':'A desktop AI assistant and mascot for everyday work.',
-        'projects.ghostchat':'A lightweight chat project focused on privacy and usability.','projects.ammp0':'A tool for pentesting tasks and technical research.',
+        'projects.ghostchat':'A lightweight chat project focused on privacy and usability.','projects.ammp0':'A tool for pentesting tasks and technical research.','projects.dot':'A minimal VLESS client for Android and Windows.',
         'projects.open':'View project','contacts.title':'Contacts','footer.text':'Vibecoding 4ever XD'
       }
     };
