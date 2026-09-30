@@ -1,18 +1,91 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="dark">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0b0d12" />
+  <meta name="description" content="Yan / Atlas — security research, OSINT / GEOINT and software development." />
   <title>Yan / Atlas</title>
-  <meta name="description" content="Разработчик и специалист по OSINT / GEOINT">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <div id="root"></div>
-  <script src="bundle.js"></script>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <header class="topbar shell">
+    <a class="brand" href="#top">ATLAS<span>.</span></a>
+    <nav class="topnav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-kicker mono">YAN / ATLAS — SOFTWARE + SECURITY</div>
+      <h1 class="hero-statement">
+        If I need it and<br>
+        it doesn't exist,<br>
+        <em>I build it.</em>
+      </h1>
+      <div class="hero-bottom">
+        <p id="heroIntro"></p>
+        <div class="hero-actions">
+          <a href="#about">About me <span>↓</span></a>
+          <a href="https://github.com/atlasru" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about shell" id="about">
+      <div class="about-mark mono">01 / ABOUT</div>
+      <div class="about-copy-wrap">
+        <p class="about-copy" id="aboutCopy"></p>
+        <div class="about-side" id="aboutFacts"></div>
+      </div>
+    </section>
+
+    <section class="work shell" id="work">
+      <div class="section-head">
+        <div>
+          <span class="section-index mono">02</span>
+          <h2>Selected work</h2>
+        </div>
+        <p class="section-note">Five projects. Different problems.</p>
+      </div>
+      <div class="project-grid" id="projectGrid"></div>
+    </section>
+
+    <section class="stack shell" id="stack">
+      <div class="section-head compact">
+        <div>
+          <span class="section-index mono">03</span>
+          <h2>What I use</h2>
+        </div>
+      </div>
+      <div class="stack-rack" id="stackGroups"></div>
+    </section>
+
+    <section class="contact shell" id="contact">
+      <div class="contact-copy">
+        <span class="section-index mono">04 / CONTACT</span>
+        <h2>Need me?<br><em>Pick a channel.</em></h2>
+      </div>
+      <div class="link-list" id="linkList"></div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <span class="mono">ATLAS / 2026</span>
+    <a href="#top" class="mono">BACK TO TOP ↑</a>
+  </footer>
+
+  <script src="./site.config.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>
