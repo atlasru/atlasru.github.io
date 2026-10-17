@@ -1,91 +1,141 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#0b0d12" />
-  <meta name="description" content="Yan / Atlas — security research, OSINT / GEOINT and software development." />
-  <title>Yan / Atlas</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050505">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Atlas — independent developer. Building practical software around privacy, security, OSINT and curiosity.">
+  <title>atlas. — personal space</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./site.config.js" defer></script>
+  <script src="./app.js" defer></script>
 </head>
 <body>
-  <div class="cursor-dot" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
 
-  <header class="topbar shell">
-    <a class="brand" href="#top">ATLAS<span>.</span></a>
-    <nav class="topnav" aria-label="Primary navigation">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#stack">Stack</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Atlas home">
+        <span class="brand-symbol" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span class="brand-name">atlas<span>.</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        
+        <a class="header-link" href="https://github.com/atlasru" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
   </header>
 
-  <main id="top">
-    <section class="hero shell">
-      <div class="hero-kicker mono">YAN / ATLAS — SOFTWARE + SECURITY</div>
-      <h1 class="hero-statement">
-        If I need it and<br>
-        it doesn't exist,<br>
-        <em>I build it.</em>
-      </h1>
+  <main id="main">
+    <section class="hero shell" aria-labelledby="heroTitle">
+      <div class="hero-kicker eyebrow"><span class="eyebrow-pulse"></span> YAN / ATLAS <span class="kicker-sep">—</span> SOFTWARE &amp; SECURITY</div>
+      <div class="hero-title-wrap">
+        <h1 class="hero-title" id="heroTitle">
+          <span class="title-line">I build software,</span>
+          <span class="title-line title-muted">explore systems,</span>
+          <span class="title-line">and follow <span class="selection-wrap"><button type="button" class="selected-word" id="heroWord" aria-label="Change highlighted word" title="Click to change the word">curiosity.</button><i class="corner corner-tl"></i><i class="corner corner-tr"></i><i class="corner corner-bl"></i><i class="corner corner-br"></i></span></span>
+        </h1>
+      </div>
       <div class="hero-bottom">
-        <p id="heroIntro"></p>
-        <div class="hero-actions">
-          <a href="#about">About me <span>↓</span></a>
-          <a href="https://github.com/atlasru" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+        <p>Windows · Linux · Android<br>Security · OSINT · Networking</p>
+        <div class="hero-buttons">
+          <a class="pill pill-light" href="#work">Explore my work <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="hero-divider" aria-hidden="true"></div>
+    </section>
+
+    <section class="workbench-section shell" aria-label="Interactive project preview">
+      <div class="workbench" id="workbench">
+        <div class="wb-titlebar">
+          <div class="wb-titlebar-left"><span class="wb-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span><strong>atlas / projects</strong></div>
+          <div class="wb-titlebar-right"><span class="wb-project-count" id="projectCount">5 PROJECTS</span></div>
+        </div>
+        <div class="wb-body">
+          <aside class="wb-sidebar" aria-label="Choose a project">
+            <div class="wb-sidebar-top"><span>PROJECTS</span></div>
+            <div class="project-picker" id="projectPicker"></div>
+          </aside>
+          <div class="wb-viewport">
+            <div class="wb-toolbar">
+              <div class="wb-tabs"><span class="wb-tab-active" id="activeProjectBreadcrumb">LinkScope</span></div>
+            </div>
+            <div class="wb-canvas" id="wbCanvas">
+              <div class="canvas-grid" aria-hidden="true"></div>
+              <div class="canvas-topline"><div><span class="tiny-status-dot"></span> <span id="canvasKind">OSINT / INVESTIGATION</span></div></div>
+              <div class="canvas-art" aria-hidden="true" id="canvasArt"></div>
+              <div class="canvas-info">
+                <div class="canvas-copy">
+                  <h2 id="canvasTitle">LinkScope</h2>
+                  <p id="canvasDescription">Local-first workspace for link analysis and large relationship graphs.</p>
+                  <div class="canvas-tags" id="canvasTags"></div>
+                </div>
+                <a class="canvas-open" id="canvasOpen" href="https://github.com/atlasru/linkscope" target="_blank" rel="noopener noreferrer" aria-label="Open project repository"><span>View source</span><span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="canvas-counter"><button id="prevProject" aria-label="Previous project" type="button">←</button><span id="canvasCounter">01 / 05</span><button id="nextProject" aria-label="Next project" type="button">→</button></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="about shell" id="about">
-      <div class="about-mark mono">01 / ABOUT</div>
-      <div class="about-copy-wrap">
-        <p class="about-copy" id="aboutCopy"></p>
-        <div class="about-side" id="aboutFacts"></div>
-      </div>
-    </section>
-
-    <section class="work shell" id="work">
-      <div class="section-head">
-        <div>
-          <span class="section-index mono">02</span>
-          <h2>Selected work</h2>
+    <section class="section about-section shell" id="about" aria-labelledby="aboutTitle">
+      <div class="section-heading"><span class="section-eyebrow">01 / ABOUT</span></div>
+      <div class="about-layout">
+        <div class="about-title-col">
+          <h2 class="section-large-title" id="aboutTitle">About <span class="text-muted">me.</span></h2>
+          <div class="clock-card" aria-label="Current time in Moscow" role="group">
+            <div class="clock-head"><span class="clock-city"><span class="clock-live-dot" aria-hidden="true"></span> MOSCOW</span><span class="clock-zone">UTC+03:00</span></div>
+            <div class="clock-time" aria-live="off"><time id="moscowTime" datetime="">--:--</time><span id="moscowSeconds">--</span></div>
+            <div class="clock-date" id="moscowDate">MOSCOW LOCAL TIME</div>
+          </div>
         </div>
-        <p class="section-note">Five projects. Different problems.</p>
-      </div>
-      <div class="project-grid" id="projectGrid"></div>
-    </section>
-
-    <section class="stack shell" id="stack">
-      <div class="section-head compact">
-        <div>
-          <span class="section-index mono">03</span>
-          <h2>What I use</h2>
+        <div class="about-text-col">
+          <p class="about-lead">I'm Yan. I develop software focused on security, privacy and OSINT.</p>
+          <div class="fact-list">
+            <div><span>PLATFORMS</span><p>Windows / Linux / Android / Web</p></div>
+            <div><span>PROJECTS</span><p>Prism / LinkScope / dot.</p></div>
+          </div>
+          <div class="about-socials"><a href="https://github.com/atlasru" target="_blank" rel="noopener noreferrer">github ↗</a><a href="https://t.me/payloadlol" target="_blank" rel="noopener noreferrer">telegram ↗</a><a href="mailto:gen0l@protonmail.com">email ↗</a></div>
         </div>
       </div>
-      <div class="stack-rack" id="stackGroups"></div>
     </section>
 
-    <section class="contact shell" id="contact">
-      <div class="contact-copy">
-        <span class="section-index mono">04 / CONTACT</span>
-        <h2>Need me?<br><em>Pick a channel.</em></h2>
+    <section class="section work-section shell" id="work" aria-labelledby="workTitle">
+      <div class="section-heading"><span class="section-eyebrow">02 / WORK</span></div>
+      <div class="section-header-line"><h2 class="section-large-title" id="workTitle">Selected <span class="text-muted">work.</span></h2></div>
+      <div class="work-list" id="workList"></div>
+      <a class="text-link more-repos" href="https://github.com/atlasru?tab=repositories" target="_blank" rel="noopener noreferrer">Explore everything on GitHub <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="section stack-section shell" id="stack" aria-labelledby="stackTitle">
+      <div class="section-heading"><span class="section-eyebrow">03 / STACK</span></div>
+      <div class="stack-layout">
+        <div><h2 class="section-large-title" id="stackTitle">My <span class="text-muted">stack.</span></h2></div>
+        <div class="stack-categories" id="stackCategories"></div>
       </div>
-      <div class="link-list" id="linkList"></div>
+    </section>
+
+    <section class="section activity-section shell" aria-labelledby="activityTitle">
+      <div class="section-heading"><span class="section-eyebrow">04 / ACTIVITY</span></div>
+      <div class="activity-layout"><div><h2 class="section-large-title" id="activityTitle">GitHub <span class="text-muted">activity.</span></h2></div><div class="activity-feed" id="activityFeed" aria-live="polite"><div class="activity-placeholder"><span class="activity-circle"></span> Loading public activity…</div></div></div>
+    </section>
+
+    <section class="section contact-section shell" id="contact" aria-labelledby="contactTitle">
+      <div class="section-heading"><span class="section-eyebrow">05 / CONTACT</span></div>
+      <div class="contact-layout"><div><h2 class="contact-title" id="contactTitle">Let's <span>talk.</span></h2></div><div class="contact-links"><a class="pill pill-light" href="https://t.me/payloadlol" target="_blank" rel="noopener noreferrer">Message on Telegram <span aria-hidden="true">↗</span></a><a class="pill pill-outline" href="mailto:gen0l@protonmail.com">Send an email <span aria-hidden="true">↗</span></a></div></div>
     </section>
   </main>
 
-  <footer class="footer shell">
-    <span class="mono">ATLAS / 2026</span>
-    <a href="#top" class="mono">BACK TO TOP ↑</a>
-  </footer>
-
-  <script src="./site.config.js"></script>
-  <script src="./app.js"></script>
+  <footer class="footer shell"><a class="footer-brand" href="#top">atlas<span>.</span></a><a href="#top">Back to top ↑</a></footer>
 </body>
 </html>
