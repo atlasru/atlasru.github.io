@@ -8,9 +8,10 @@
   <meta name="description" content="Atlas — independent developer. Building practical software around privacy, security, OSINT and curiosity.">
   <title>atlas. — personal space</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles.css">
-  <script src="./site.config.js" defer></script>
-  <script src="./app.js" defer></script>
+  <!-- Refresh the asset versions when their contents change. GitHub Pages caches each URL separately. -->
+  <link rel="stylesheet" href="./styles.css?v=40e9e9e4032b">
+  <script src="./site.config.js?v=7ecf5adcd8d7" defer></script>
+  <script src="./app.js?v=b3fb3b03ae9f" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -61,7 +62,7 @@
           <div class="wb-titlebar-right"><span class="wb-project-count" id="projectCount">6 PROJECTS</span></div>
         </div>
         <div class="wb-body">
-          <aside class="wb-sidebar" aria-label="Choose a project">
+          <aside class="wb-sidebar" id="projectSidebar" aria-label="Choose a project" hidden>
             <div class="wb-sidebar-top"><span>PROJECTS</span></div>
             <div class="project-picker" id="projectPicker"></div>
           </aside>
@@ -69,19 +70,19 @@
             <div class="wb-toolbar">
               <div class="wb-tabs"><span class="wb-tab-active" id="activeProjectBreadcrumb">SaverYou</span></div>
             </div>
-            <div class="wb-canvas" id="wbCanvas">
+            <div class="wb-canvas is-featured" id="wbCanvas" data-project="saveryou">
               <div class="canvas-grid" aria-hidden="true"></div>
-              <div class="canvas-topline"><div><span class="tiny-status-dot"></span> <span id="canvasKind">LIVE / PRODUCTION</span></div></div>
-              <div class="canvas-art" aria-hidden="true" id="canvasArt"></div>
+              <div class="canvas-topline"><div><span class="tiny-status-dot" aria-hidden="true"></span> <span id="canvasKind">TELEGRAM BUSINESS / LIVE</span></div></div>
+              <div class="canvas-art" aria-hidden="true" id="canvasArt"><img src="./saveryou-archive.svg?v=3c2bd0dec1b0" alt="" width="720" height="360"></div>
               <div class="canvas-info">
                 <div class="canvas-copy">
                   <h2 id="canvasTitle">SaverYou</h2>
-                  <p id="canvasDescription">Telegram Business service for preserving message history, tracking edits and deletions, and exporting conversations.</p>
-                  <div class="canvas-tags" id="canvasTags"></div>
+                  <p id="canvasDescription">Archives Telegram Business messages and keeps a history of edits and deletions.</p>
+                  <div class="canvas-tags" id="canvasTags"><span class="canvas-tag">Python</span><span class="canvas-tag">PostgreSQL</span><span class="canvas-tag">Docker</span><span class="canvas-tag">Telegram Business API</span></div>
                 </div>
                 <a class="canvas-open" id="canvasOpen" href="https://t.me/SaverYouRobot" target="_blank" rel="noopener noreferrer" aria-label="Open SaverYou"><span>Open in Telegram</span><span aria-hidden="true">↗</span></a>
               </div>
-              <div class="canvas-counter"><button id="prevProject" aria-label="Previous project" type="button">←</button><span id="canvasCounter">01 / 06</span><button id="nextProject" aria-label="Next project" type="button">→</button></div>
+              <div class="canvas-counter" id="canvasControls" hidden><button id="prevProject" aria-label="Previous project" type="button">←</button><span id="canvasCounter">01 / 06</span><button id="nextProject" aria-label="Next project" type="button">→</button></div>
             </div>
           </div>
         </div>
@@ -103,7 +104,7 @@
           <p class="about-lead">I'm Yan. I develop software focused on security, privacy and OSINT.</p>
           <div class="fact-list">
             <div><span>PLATFORMS</span><p>Windows / Linux / Android / Web</p></div>
-            <div><span>PROJECTS</span><p>SaverYou / LinkScope / dot. / Prism</p></div>
+            <div><span>PROJECTS</span><p><a class="about-featured-link" href="#saveryou">SaverYou</a> / LinkScope / dot. / Prism</p></div>
           </div>
           <div class="about-socials"><a href="https://github.com/atlasru" target="_blank" rel="noopener noreferrer">github ↗</a><a href="https://t.me/payloadlol" target="_blank" rel="noopener noreferrer">telegram ↗</a><a href="mailto:gen0l@protonmail.com">email ↗</a></div>
         </div>
@@ -113,6 +114,23 @@
     <section class="section work-section shell" id="work" aria-labelledby="workTitle">
       <div class="section-heading"><span class="section-eyebrow">02 / WORK</span></div>
       <div class="section-header-line"><h2 class="section-large-title" id="workTitle">Selected <span class="text-muted">work.</span></h2></div>
+      <article class="featured-work" id="saveryou" aria-labelledby="saveryouTitle">
+        <div class="featured-copy">
+          <p class="featured-kicker">TELEGRAM BUSINESS</p>
+          <h3 id="saveryouTitle">SaverYou</h3>
+          <p class="featured-description">Archives messages from Telegram Business chats and keeps a history of edits and deletions.</p>
+          <ul class="featured-features">
+            <li>HTML conversation export</li>
+            <li>Admin dashboard</li>
+            <li>Subscriptions via Telegram Stars</li>
+          </ul>
+          <ul class="featured-stack" aria-label="Technology stack">
+            <li>Python</li><li>PostgreSQL</li><li>Docker</li><li>Telegram Business API</li>
+          </ul>
+          <a class="pill featured-link" href="https://t.me/SaverYouRobot" target="_blank" rel="noopener noreferrer">Open in Telegram <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="featured-art" aria-hidden="true"><img src="./saveryou-archive.svg?v=3c2bd0dec1b0" alt="" width="720" height="360" loading="lazy"></div>
+      </article>
       <div class="work-list" id="workList"></div>
       <a class="text-link more-repos" href="https://github.com/atlasru?tab=repositories" target="_blank" rel="noopener noreferrer">Explore everything on GitHub <span aria-hidden="true">↗</span></a>
     </section>

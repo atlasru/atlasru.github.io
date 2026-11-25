@@ -10,9 +10,9 @@ window.ATLAS_SITE = {
     {
       name: 'SaverYou',
       slug: 'saveryou',
-      kind: 'LIVE / PRODUCTION',
+      kind: 'TELEGRAM BUSINESS / LIVE',
       category: 'Telegram Business archiving',
-      description: 'A live Telegram Business service for preserving message history, tracking edits and deletions, and exporting conversations. Includes an administration dashboard and Telegram Stars subscriptions.',
+      description: 'Archives Telegram Business messages and keeps a history of edits and deletions.',
       stack: ['Python', 'PostgreSQL', 'Docker', 'Telegram Business API'],
       year: '2026',
       accent: '#9fbfff',

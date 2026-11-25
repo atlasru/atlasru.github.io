@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" fill="none">
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" stroke="#93b5ef" stroke-opacity=".16"/>
+    </pattern>
+    <radialGradient id="gridFade">
+      <stop stop-color="#fff" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="gridMask">
+      <rect width="720" height="360" fill="url(#gridFade)"/>
+    </mask>
+    <radialGradient id="glow">
+      <stop stop-color="#6b9de8" stop-opacity=".27"/>
+      <stop offset="1" stop-color="#6b9de8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#24344c"/>
+      <stop offset="1" stop-color="#111926"/>
+    </linearGradient>
+    <linearGradient id="signal">
+      <stop stop-color="#698fc5" stop-opacity=".36"/>
+      <stop offset=".5" stop-color="#c1daff"/>
+      <stop offset="1" stop-color="#698fc5" stop-opacity=".55"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="360" cy="180" rx="338" ry="177" fill="url(#glow)"/>
+  <rect width="720" height="360" fill="url(#grid)" mask="url(#gridMask)"/>
+  <g stroke="#9fbfff" stroke-opacity=".32">
+    <path d="M21 73V54h19m640 0h19v19M21 288v19h19m640 0h19v-19"/>
+    <path d="M353 31h14m-7-7v14m-7 291h14m-7-7v14"/>
+  </g>
+
+  <rect x="46" y="72" width="234" height="216" rx="14" fill="url(#panel)" stroke="#8bb0e8" stroke-opacity=".65"/>
+  <path d="M46 121h234" stroke="#8bb0e8" stroke-opacity=".36"/>
+  <rect x="63" y="87" width="21" height="21" rx="6" fill="#9fbfff" fill-opacity=".16"/>
+  <path d="m68 97 11-5-3 11-4-4-3 2 1-3z" fill="#c3d9ff"/>
+  <text x="94" y="102" fill="#d3e3ff" font-family="monospace" font-size="13">TELEGRAM BUSINESS</text>
+
+  <path d="M64 147a9 9 0 019-9h139a9 9 0 019 9v20a9 9 0 01-9 9H74l-10 7z" fill="#9fbfff" fill-opacity=".14" stroke="#8bb0e8" stroke-opacity=".54"/>
+  <path d="M78 152h95m-95 10h67" stroke="#b5cff9" stroke-opacity=".65" stroke-linecap="round" stroke-width="2"/>
+  <path d="M124 198a9 9 0 019-9h119a9 9 0 019 9v36l-10-7H133a9 9 0 01-9-9z" fill="#9fbfff" fill-opacity=".08" stroke="#8bb0e8" stroke-opacity=".44"/>
+  <path d="M139 204h104m-104 10h69" stroke="#b5cff9" stroke-opacity=".42" stroke-linecap="round" stroke-width="2"/>
+  <path d="M65 255h196" stroke="#8bb0e8" stroke-opacity=".22" stroke-dasharray="3 5"/>
+  <text x="64" y="273" fill="#9bb7e3" font-family="monospace" font-size="11">MESSAGE EVENTS</text>
+
+  <path d="M280 180h160" stroke="url(#signal)" stroke-width="2" stroke-dasharray="4 5"/>
+  <circle cx="360" cy="180" r="34" fill="#121c2b" stroke="#7da8e8" stroke-opacity=".5"/>
+  <circle cx="360" cy="180" r="26" fill="#225188" fill-opacity=".38" stroke="#a1c5ff"/>
+  <path d="M348 171h24v6h-24zM350 177v13h20v-13m-13 5h6" stroke="#d7e7ff" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5"/>
+
+  <rect x="440" y="72" width="234" height="216" rx="14" fill="url(#panel)" stroke="#8bb0e8" stroke-opacity=".65"/>
+  <path d="M440 121h234" stroke="#8bb0e8" stroke-opacity=".36"/>
+  <rect x="457" y="87" width="21" height="21" rx="6" fill="#9fbfff" fill-opacity=".16"/>
+  <path d="M468 92a6 6 0 106 6m-6-3v4l2 1m1-8h4v4" stroke="#c3d9ff" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="489" y="102" fill="#d3e3ff" font-family="monospace" font-size="13">ARCHIVE HISTORY</text>
+
+  <path d="M467 145v86" stroke="#8bb0e8" stroke-opacity=".46"/>
+  <circle cx="467" cy="149" r="5" fill="#a7ecd9"/>
+  <circle cx="467" cy="189" r="5" fill="#b9b1ff"/>
+  <circle cx="467" cy="229" r="5" fill="#f3b5be"/>
+  <g font-family="monospace" font-size="12">
+    <text x="485" y="153" fill="#d3e3ff">MESSAGE SAVED</text>
+    <text x="485" y="193" fill="#d3e3ff">EDIT RECORDED</text>
+    <text x="485" y="233" fill="#d3e3ff">DELETION RECORDED</text>
+  </g>
+  <path d="M650 149h-11m11 40h-20m20 40h-11M458 255h198" stroke="#8bb0e8" stroke-opacity=".32" stroke-dasharray="3 5"/>
+  <text x="458" y="273" fill="#9bb7e3" font-family="monospace" font-size="11">POSTGRESQL / HTML EXPORT</text>
+</svg>

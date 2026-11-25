@@ -32,16 +32,7 @@
 
   const visuals = {
     archive() {
-      return svgWrap(`<g transform="translate(400 175)">
-        <rect x="-240" y="-120" width="190" height="230" rx="12" class="art-edge"/>
-        <rect x="50" y="-120" width="190" height="230" rx="12" class="art-edge"/>
-        ${[-78,-24,30].map((y,i)=>`<rect x="-220" y="${y}" width="${i===1?115:150}" height="30" rx="6" fill="var(--project-color)" fill-opacity=".08" stroke="var(--project-color)" stroke-opacity=".45"/><path class="art-edge-faint" d="M-207 ${y+12}h80m-80 7h50"/>`).join('')}
-        ${[-78,-24,30].map(y=>`<rect x="70" y="${y}" width="150" height="30" rx="6" class="art-edge"/><path class="art-edge-faint" d="M84 ${y+12}h95m-95 7h60"/>`).join('')}
-        <path class="art-edge art-dash" d="M-50 -10H50"/>
-        ${node(0,-10,14,true)}
-        ${label('TELEGRAM / EVENTS',-240,-137)}${label('PERSISTENT / ARCHIVE',50,-137)}
-        ${label('MESSAGE HISTORY',-240,135)}${label('POSTGRESQL',50,135)}
-      </g>`);
+      return svgWrap('<image href="./saveryou-archive.svg" x="40" y="0" width="720" height="360"/>');
     },
     network() {
       const coords = [[178,122],[274,90],[377,156],[488,83],[615,142],[673,232],[555,269],[435,223],[318,277],[208,242],[380,55],[535,187],[292,179],[458,318],[130,199]];
@@ -102,13 +93,20 @@
     }
   };
 
-  $('#projectCount').textContent = `${projects.length} PROJECTS`;
   const picker = $('#projectPicker');
   const workList = $('#workList');
   const stackCategories = $('#stackCategories');
   const canvas = $('#wbCanvas');
   const canvasArt = $('#canvasArt');
-  let activeProject = 0;
+  const featuredProject = canvas.dataset.project;
+  const featuredArt = canvasArt.querySelector('img');
+  const initialProject = featuredProject
+    ? projects.findIndex(project => project.slug === featuredProject)
+    : 0;
+  if (initialProject < 0) return;
+
+  $('#projectCount').textContent = `${projects.length} PROJECTS`;
+  let activeProject = initialProject;
   let swapTimeout;
   let selectionChanging = false;
 
@@ -117,13 +115,15 @@
     button.type = 'button';
     button.className = 'project-pick';
     button.style.setProperty('--project-color', project.accent);
-    button.setAttribute('aria-pressed', String(index === 0));
+    button.setAttribute('aria-pressed', String(index === initialProject));
     button.innerHTML = '<span class="pick-indicator" aria-hidden="true"></span><span class="pick-copy"><span class="pick-name"></span><span class="pick-subtitle"></span></span>';
     button.querySelector('.pick-indicator').textContent = String(index + 1).padStart(2, '0');
     button.querySelector('.pick-name').textContent = project.name;
     button.querySelector('.pick-subtitle').textContent = project.category;
     button.addEventListener('click', () => activateProject(index));
     picker.append(button);
+
+    if (project.slug === featuredProject) return;
 
     const row = document.createElement('a');
     row.className = 'work-row';
@@ -161,6 +161,8 @@
   function activateProject(index) {
     activeProject = (index + projects.length) % projects.length;
     const project = projects[activeProject];
+    const isFeatured = project.slug === featuredProject;
+    canvas.classList.toggle('is-featured', isFeatured);
     canvas.style.setProperty('--project-color', project.accent);
     [...picker.children].forEach((button, buttonIndex) => {
       const isSelected = buttonIndex === activeProject;
@@ -184,15 +186,27 @@
       tags.append(tag);
     });
     clearTimeout(swapTimeout);
+    if (canvasArt.dataset.project === project.slug) {
+      canvasArt.classList.remove('swap-out');
+      return;
+    }
     canvasArt.classList.add('swap-out');
     swapTimeout = setTimeout(() => {
-      canvasArt.innerHTML = visuals[project.art]();
+      if (isFeatured) {
+        canvasArt.replaceChildren(featuredArt);
+      } else {
+        canvasArt.innerHTML = visuals[project.art]();
+      }
+      canvasArt.dataset.project = project.slug;
       canvasArt.classList.remove('swap-out');
     }, 115);
   }
-  activateProject(0);
+  canvasArt.dataset.project = featuredProject;
+  activateProject(initialProject);
   $('#prevProject').addEventListener('click', () => activateProject(activeProject - 1));
   $('#nextProject').addEventListener('click', () => activateProject(activeProject + 1));
+  $('#projectSidebar')?.removeAttribute('hidden');
+  $('#canvasControls')?.removeAttribute('hidden');
 
   const words = ['curiosity.', 'questions.', 'ideas.'];
   let wordIndex = 0;
