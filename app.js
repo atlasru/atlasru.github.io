@@ -31,6 +31,18 @@
   const label = (text, x, y) => `<text class="art-label" x="${x}" y="${y}">${text}</text>`;
 
   const visuals = {
+    archive() {
+      return svgWrap(`<g transform="translate(400 175)">
+        <rect x="-240" y="-120" width="190" height="230" rx="12" class="art-edge"/>
+        <rect x="50" y="-120" width="190" height="230" rx="12" class="art-edge"/>
+        ${[-78,-24,30].map((y,i)=>`<rect x="-220" y="${y}" width="${i===1?115:150}" height="30" rx="6" fill="var(--project-color)" fill-opacity=".08" stroke="var(--project-color)" stroke-opacity=".45"/><path class="art-edge-faint" d="M-207 ${y+12}h80m-80 7h50"/>`).join('')}
+        ${[-78,-24,30].map(y=>`<rect x="70" y="${y}" width="150" height="30" rx="6" class="art-edge"/><path class="art-edge-faint" d="M84 ${y+12}h95m-95 7h60"/>`).join('')}
+        <path class="art-edge art-dash" d="M-50 -10H50"/>
+        ${node(0,-10,14,true)}
+        ${label('TELEGRAM / EVENTS',-240,-137)}${label('PERSISTENT / ARCHIVE',50,-137)}
+        ${label('MESSAGE HISTORY',-240,135)}${label('POSTGRESQL',50,135)}
+      </g>`);
+    },
     network() {
       const coords = [[178,122],[274,90],[377,156],[488,83],[615,142],[673,232],[555,269],[435,223],[318,277],[208,242],[380,55],[535,187],[292,179],[458,318],[130,199]];
       const pairs = [[0,1],[0,9],[0,12],[1,2],[1,10],[2,3],[2,7],[2,12],[3,4],[3,10],[4,5],[4,11],[5,6],[6,7],[6,11],[7,8],[7,11],[7,12],[7,13],[8,9],[8,12],[8,13],[9,14],[9,12],[10,3],[11,2],[12,1],[13,6]];
@@ -118,7 +130,7 @@
     row.href = project.url;
     row.target = '_blank';
     row.rel = 'noopener noreferrer';
-    row.setAttribute('aria-label', `${project.name}: open GitHub repository`);
+    row.setAttribute('aria-label', `${project.name}: open project`);
     row.innerHTML = '<span class="work-number"></span><div class="work-title"><span class="work-name"></span><span class="work-category"></span></div><div class="work-details"><p></p><span class="work-minitags"></span></div><span class="work-link-icon" aria-hidden="true">↗</span>';
     row.querySelector('.work-number').textContent = String(index + 1).padStart(2, '0');
     row.querySelector('.work-name').textContent = project.name;
@@ -161,7 +173,8 @@
     $('#canvasDescription').textContent = project.description;
     $('#canvasCounter').textContent = `${String(activeProject + 1).padStart(2, '0')} / ${String(projects.length).padStart(2, '0')}`;
     $('#canvasOpen').href = project.url;
-    $('#canvasOpen').setAttribute('aria-label', `Open ${project.name} repository`);
+    $('#canvasOpen').firstElementChild.textContent = project.linkLabel || 'View source';
+    $('#canvasOpen').setAttribute('aria-label', `Open ${project.name}`);
     const tags = $('#canvasTags');
     tags.replaceChildren();
     project.stack.forEach((t) => {
