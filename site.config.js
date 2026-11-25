@@ -8,6 +8,19 @@ window.ATLAS_SITE = {
   },
   projects: [
     {
+      name: 'SaverYou',
+      slug: 'saveryou',
+      kind: 'LIVE / PRODUCTION',
+      category: 'Telegram Business archiving',
+      description: 'A live Telegram Business service for preserving message history, tracking edits and deletions, and exporting conversations. Includes an administration dashboard and Telegram Stars subscriptions.',
+      stack: ['Python', 'PostgreSQL', 'Docker', 'Telegram Business API'],
+      year: '2026',
+      accent: '#9fbfff',
+      art: 'archive',
+      linkLabel: 'Open in Telegram',
+      url: 'https://t.me/SaverYouRobot'
+    },
+    {
       name: 'LinkScope',
       slug: 'linkscope',
       kind: 'OSINT / INVESTIGATION',
@@ -71,6 +84,6 @@ window.ATLAS_SITE = {
   stackGroups: [
     { label: 'LANGUAGES', items: ['Python', 'Rust', 'Kotlin', 'C++', 'TypeScript'] },
     { label: 'FRAMEWORKS', items: ['Tauri', 'Qt / QML', 'Jetpack Compose', 'React', 'FastAPI'] },
-    { label: 'SYSTEMS & TOOLS', items: ['Git', 'Linux', 'Android', 'Xray-core', 'ONNX'] }
+    { label: 'SYSTEMS & TOOLS', items: ['Git', 'Linux', 'Android', 'Xray-core', 'ONNX', 'Docker', 'PostgreSQL', 'Telegram Business API'] }
   ]
 };
